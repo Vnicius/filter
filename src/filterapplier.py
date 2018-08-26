@@ -22,7 +22,7 @@ class FilterApplier:
                     filtred = False
                     if sentence:
                         for word in sentence.split(' '):
-                            if self.has_word(word):
+                            if self.has_word(word.lower()):
                                 # print(self.classifier.classify(sentence))
                                 filtred = True
 

@@ -34,7 +34,7 @@ if __name__ == "__main__":
     filter_applier = FilterApplier(filters_list)
     filtered_sentences = filter_applier.filter(file_src)
 
-    with open(filtered_file_name, 'w', encoding='utf-8') as out_file:
+    with open(filtered_file_name, 'w') as out_file:
 
         for sentence in filtered_sentences:
             out_file.write(sentence + '\n')
