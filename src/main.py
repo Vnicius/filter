@@ -16,6 +16,7 @@ if __name__ == "__main__":
     file_src = sys.argv[1]
     filters_dir = sys.argv[2]
     filtered_file_name = sys.argv[3]
+    filter_parallel = "" if len(sys.argv) < 5 else sys.argv[4]
     filters_files = []
     filters_list = []
     filter_applier = None
@@ -32,9 +33,17 @@ if __name__ == "__main__":
         filters_list.append(filter_file)
 
     filter_applier = FilterApplier(filters_list)
-    filtered_sentences = filter_applier.filter(file_src)
+    filtered_sentences, parallel_sentences = filter_applier.filter(
+        file_src, "" if not filter_parallel else open(filter_parallel, 'r'))
 
     with open(filtered_file_name, 'w') as out_file:
 
         for sentence in filtered_sentences:
+            out_file.write(sentence + '\n')
+
+        filter_applier.getCounts()
+
+    with open("prallel-"+filtered_file_name, 'w') as out_file:
+
+        for sentence in parallel_sentences:
             out_file.write(sentence + '\n')

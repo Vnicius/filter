@@ -1,0 +1,13 @@
+perguntar - 205
+responder - 193
+dar - 3268
+avisar - 33
+orientar - 0
+ensinar - 168
+mostrar - 195
+contar - 0
+ajudar - 1188
+chamar - 163
+olhar - 145
+ver - 6250
+escolher - 0
